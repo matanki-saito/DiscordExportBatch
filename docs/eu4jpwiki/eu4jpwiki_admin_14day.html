@@ -1,0 +1,4760 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EU4日wiki - 管理者連絡・質問用</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* General */
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/6c6374bad0b0b6d204d8d6dc4a18d820.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/e8acd7d9bf6207f99350ca9f9e23b168.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/3bdef1251a424500c1b3a78dea9b7e57.woff);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/be0060dafb7a0e31d2a1ca17c0708636.woff);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Whitney;
+    src: url(https://discord.com/assets/8e12fb4f14d9c4592eb8ec9f22337b04.woff);
+    font-weight: 700;
+}
+
+body {
+    font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    object-fit: contain;
+}
+
+.markdown {
+    max-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+}
+
+.spoiler {
+    width: fit-content;
+}
+
+.spoiler--hidden {
+    cursor: pointer;
+}
+
+.spoiler-text {
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-text {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler--hidden .spoiler-text::selection {
+    color: rgba(0, 0, 0, 0);
+}
+
+.spoiler-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.spoiler--hidden .spoiler-image {
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.spoiler--hidden .spoiler-image img {
+    filter: blur(44px);
+}
+
+.spoiler--hidden .spoiler-image:after {
+    content: "SPOILER";
+    color: #dcddde;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    padding: 0.5em 0.7em;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+}
+
+.spoiler--hidden:hover .spoiler-image:after {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.quote {
+    margin: 0.1em 0;
+    padding-left: 0.6em;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.pre {
+    font-family: "Consolas", "Courier New", Courier, monospace;
+}
+
+.pre--multiline {
+    margin-top: 0.25em;
+    padding: 0.5em;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.pre--inline {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.mention {
+    border-radius: 3px;
+    padding: 0 2px;
+    color: #7289da;
+    background: rgba(114, 137, 218, .1);
+    font-weight: 500;
+}
+
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 0.06em;
+    vertical-align: -0.4em;
+}
+
+.emoji--small {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji--large {
+    width: 2.8em;
+    height: 2.8em;
+}
+
+/* Preamble */
+
+.preamble {
+    display: grid;
+    margin: 0 0.3em 0.6em 0.3em;
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+}
+
+.preamble__guild-icon-container {
+    grid-column: 1;
+}
+
+.preamble__guild-icon {
+    max-width: 88px;
+    max-height: 88px;
+}
+
+.preamble__entries-container {
+    grid-column: 2;
+    margin-left: 0.6em;
+}
+
+.preamble__entry {
+    font-size: 1.4em;
+}
+
+.preamble__entry--small {
+    font-size: 1em;
+}
+
+/* Chatlog */
+
+.chatlog {
+    max-width: 100%;
+}
+
+.chatlog__message-group {
+    display: grid;
+    margin: 0 0.6em;
+    padding: 0.9em 0;
+    border-top: 1px solid;
+    grid-template-columns: auto 1fr;
+}
+
+.chatlog__author-avatar-container {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.chatlog__author-avatar {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.chatlog__messages {
+    grid-column: 2;
+    margin-left: 1.2em;
+    min-width: 50%;
+}
+
+.chatlog__author-name {
+    font-weight: 500;
+}
+
+.chatlog__timestamp {
+    margin-left: 0.3em;
+    font-size: 0.75em;
+}
+
+.chatlog__message {
+    padding: 0.1em 0.3em;
+    margin: 0 -0.3em;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+.chatlog__content {
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.chatlog__edited-timestamp {
+    margin-left: 0.15em;
+    font-size: 0.8em;
+}
+
+.chatlog__attachment {
+    margin-top: 0.3em;
+}
+
+.chatlog__attachment-thumbnail {
+    vertical-align: top;
+    max-width: 45vw;
+    max-height: 500px;
+    border-radius: 3px;
+}
+
+.chatlog__embed {
+    display: flex;
+    margin-top: 0.3em;
+    max-width: 520px;
+}
+
+.chatlog__embed-color-pill {
+    flex-shrink: 0;
+    width: 0.25em;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.chatlog__embed-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.6em;
+    border: 1px solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.chatlog__embed-content {
+    display: flex;
+    width: 100%;
+}
+
+.chatlog__embed-text {
+    flex: 1;
+}
+
+.chatlog__embed-author {
+    display: flex;
+    margin-bottom: 0.3em;
+    align-items: center;
+}
+
+.chatlog__embed-author-icon {
+    margin-right: 0.5em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.chatlog__embed-author-name {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-title {
+    margin-bottom: 0.2em;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.chatlog__embed-description {
+    font-weight: 500;
+    font-size: 0.85em;
+}
+
+.chatlog__embed-fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chatlog__embed-field {
+    flex: 0;
+    min-width: 100%;
+    max-width: 506px;
+    padding-top: 0.6em;
+    font-size: 0.875em;
+}
+
+.chatlog__embed-field--inline {
+    flex: 1;
+    flex-basis: auto;
+    min-width: 150px;
+}
+
+.chatlog__embed-field-name {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.chatlog__embed-field-value {
+    font-weight: 500;
+}
+
+.chatlog__embed-thumbnail {
+    flex: 0;
+    margin-left: 1.2em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-image-container {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-image {
+    max-width: 500px;
+    max-height: 400px;
+    border-radius: 3px;
+}
+
+.chatlog__embed-footer {
+    margin-top: 0.6em;
+}
+
+.chatlog__embed-footer-icon {
+    margin-right: 0.2em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.chatlog__embed-footer-text {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.chatlog__reactions {
+    display: flex;
+}
+
+.chatlog__reaction {
+    display: flex;
+    align-items: center;
+    margin: 0.35em 0.1em 0.1em 0.1em;
+    padding: 0.2em 0.35em;
+    border-radius: 3px;
+}
+
+.chatlog__reaction-count {
+    min-width: 9px;
+    margin-left: 0.35em;
+    font-size: 0.875em;
+}
+
+.chatlog__bot-tag {
+    position: relative;
+    top: -.2em;
+    margin-left: 0.3em;
+    padding: 0.05em 0.3em;
+    border-radius: 3px;
+    vertical-align: middle;
+    line-height: 1.3;
+    background: #7289da;
+    color: #ffffff;
+    font-size: 0.625em;
+    font-weight: 500;
+}
+
+/* Postamble */
+
+.postamble {
+    margin: 1.4em 0.3em 0.6em 0.3em;
+    padding: 1em;
+    border-top: 1px solid;
+}
+    </style>
+    <style>
+        /* General */
+
+body {
+    background-color: #36393e;
+    color: #dcddde;
+}
+
+a {
+    color: #0096cf;
+}
+
+.spoiler-text {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spoiler--hidden .spoiler-text {
+    background-color: #202225;
+}
+
+.spoiler--hidden:hover .spoiler-text {
+    background-color: rgba(32, 34, 37, 0.8);
+}
+
+.quote {
+    border-color: #4f545c;
+}
+
+.pre {
+    background-color: #2f3136 !important;
+}
+
+.pre--multiline {
+    border-color: #282b30 !important;
+    color: #b9bbbe !important;
+}
+
+/* === Preamble === */
+
+.preamble__entry {
+    color: #ffffff;
+}
+
+/* Chatlog */
+
+.chatlog__message-group {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatlog__author-name {
+    color: #ffffff;
+}
+
+.chatlog__timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__message--highlighted {
+    background-color: rgba(114, 137, 218, 0.2) !important;
+}
+
+.chatlog__message--pinned {
+    background-color: rgba(249, 168, 37, 0.05);
+}
+
+.chatlog__edited-timestamp {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.chatlog__embed-color-pill--default {
+    background-color: rgba(79, 84, 92, 1);
+}
+
+.chatlog__embed-content-container {
+    background-color: rgba(46, 48, 54, 0.3);
+    border-color: rgba(46, 48, 54, 0.6);
+}
+
+.chatlog__embed-author-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-author-name-link {
+    color: #ffffff;
+}
+
+.chatlog__embed-title {
+    color: #ffffff;
+}
+
+.chatlog__embed-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-field-name {
+    color: #ffffff;
+}
+
+.chatlog__embed-field-value {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__embed-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chatlog__reaction {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chatlog__reaction-count {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Postamble */
+
+.postamble {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.postamble__entry {
+    color: #ffffff;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(block => hljs.highlightBlock(block));
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler--hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Guild icon">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">EU4日wiki</div>
+        <div class="preamble__entry">テキストチャンネル / 管理者連絡・質問用</div>
+
+
+            <div class="preamble__entry preamble__entry--small">
+After 28-Aug-20 12:00 AM            </div>
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 02:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="749996888719229008" id="message-749996888719229008">
+                <div class="chatlog__content">
+                    <div class="markdown">（DMよりコピペ）
+
+紹運: 仮に投票で賛成が反対を、小さくor大きく上回ったとしても
+紹運: 反対派の方に疎外感を与えるというのは、これまでのgnagaokaさんの考えに鑑み、本意でではないと思いますので
+紹運: jewishさんも丁度サーバーのほうで話していましたが、あくまでルールが流動的であるということを、投票の冒頭に付け加えさせていただけないでしょうか
+gnagaoka: はい、承知しました。半年感覚ぐらいで見直すという感じで良いと思います <span class="chatlog__edited-timestamp" title="31-Aug-20 02:25 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 02:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="750001894189170827" id="message-750001894189170827">
+                <div class="chatlog__content">
+                    <div class="markdown">一点お願いがあります。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750002038263513189" id="message-750002038263513189">
+                <div class="chatlog__content">
+                    <div class="markdown">投票のとき、「いいと思う（OK）」、「駄目だと思う（NG）」に加えて「どちらでもいい」を加えてもよろしいでしょうか </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 10:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="750115333637144668" id="message-750115333637144668">
+                <div class="chatlog__content">
+                    <div class="markdown">カウンタ修正しましたが、あっているかわからないのでga(google analytics)も導入しました。 <span class="chatlog__edited-timestamp" title="31-Aug-20 10:10 PM">(edited)</span></div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128522;" title="&#128522;" src="https://twemoji.maxcdn.com/2/72x72/1f60a.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">31-Aug-20 11:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="750141676277858404" id="message-750141676277858404">
+                <div class="chatlog__content">
+                    <div class="markdown">ホントだ、治ってる。ありがとうございました。!(^^)! </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128583;‍♂️" title="&#128583;‍♂️" src="https://twemoji.maxcdn.com/2/72x72/1f647-200d-2642.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="750211022777745408" id="message-750211022777745408">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="gnagaoka#6134">@gnagaoka</span>　さん
+wikiにて編集報告とかと議論がごっちゃになるというコメを受けて
+議論報告　兼　コメント欄議論用のページ作成すべきかと思います。許可か、あるいは管理人さんで作成するか願います </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:32 AM</span>
+
+            <div class="chatlog__message " data-message-id="750211399170523166" id="message-750211399170523166">
+                <div class="chatlog__content">
+                    <div class="markdown">今回の議論内容と、感想が混じってしまうから、コメント欄のページから議論内容を独立させてほしいということでしょうか </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:34 AM</span>
+
+            <div class="chatlog__message " data-message-id="750212078823931994" id="message-750212078823931994">
+                <div class="chatlog__content">
+                    <div class="markdown">そうですね、ついでに進捗を報告できるページも兼ねればコメントだけ見てる人にもわかりやすいかと </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750212216547967016" id="message-750212216547967016">
+                <div class="chatlog__content">
+                    <div class="markdown">投票にかける、多くの人の賛意を得ることに重点置くならばやるべきかと思いますし <span class="chatlog__edited-timestamp" title="01-Sep-20 04:35 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="750212943668445264" id="message-750212943668445264">
+                <div class="chatlog__content">
+                    <div class="markdown">理解しました。作成と管理はお願いできますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="750213732289740850" id="message-750213732289740850">
+                <div class="chatlog__content">
+                    <div class="markdown">じゃあ作成しておくかなたまには作業しよ </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128591;" title="&#128591;" src="https://twemoji.maxcdn.com/2/72x72/1f64f.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="750216345177554995" id="message-750216345177554995">
+                <div class="chatlog__content">
+                    <div class="markdown">タイトルや内容に問題あれば誰か変更なり作り直しなりオナシャス </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 11:51 AM</span>
+
+            <div class="chatlog__message " data-message-id="750321971572768840" id="message-750321971572768840">
+                <div class="chatlog__content">
+                    <div class="markdown">AARの目次の中に、一種の管理者介入を匂わせるような記述があるのですが、
+これはgnagaokaさんが追加されたものですか？
+
+今年4月5日時点
+--誹謗中傷や挑発的なことを書かないこと
+
+同月11日時点
+--&#39;&#39;誹謗中傷や挑発的なことを書かないこと&#39;&#39;（違反した人は当wikiでのAARの作成をお断りします） </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 03:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="750380371891322914" id="message-750380371891322914">
+                <div class="chatlog__content">
+                    <div class="markdown">AARの目次はどの部分になりますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 03:44 PM</span>
+
+            <div class="chatlog__message " data-message-id="750380579299655720" id="message-750380579299655720">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="http://eu4.paradwiki.org/?AAR">http://eu4.paradwiki.org/?AAR</a>
+こちらのページの上部になります(いるかどうかわからない補足) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 03:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="750380886314319953" id="message-750380886314319953">
+                <div class="chatlog__content">
+                    <div class="markdown">自分は追加しておりません。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 03:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="750380986197475441" id="message-750380986197475441">
+                <div class="chatlog__content">
+                    <div class="markdown">少し長くなるかもしれないので、続きは一般のほうでよろしいですか </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 03:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="750381009853349988" id="message-750381009853349988">
+                <div class="chatlog__content">
+                    <div class="markdown">はい </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="750384613829902396" id="message-750384613829902396">
+                <div class="chatlog__content">
+                    <div class="markdown">該当時期のログに「中傷」「AAR」「wiki」等のワードで検索してみましたが、それらしい記述はヒットしませんでした </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="750384831954812959" id="message-750384831954812959">
+                <div class="chatlog__content">
+                    <div class="markdown">スレッドの頭にルールみたいのがあると思いますが、そこにも記述がありませんでしたか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="750385032518041680" id="message-750385032518041680">
+                <div class="chatlog__content">
+                    <div class="markdown">＞ゲームの内容上、歴史・政治・軍事などの話題が出ることがありますが、ゲームの内容を超えた歴史や軍事の話、および討論はスレ違いです。
+＞また、動画サイトの話題やプレイ日記的な書き込みは荒れる原因となりますのでご遠慮ください。
+
+＞質問する方はWiki等を熟読してから質問しましょう。
+＞荒らしが発生した場合は放置でお願いします。
+
+　＞このスレは公式英語版を基本としています。日本語化Modおよびその用語については日本語化MOD配布サイトを参照してください。
+
+
+5chスレのルールはここまでです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:02 PM</span>
+
+            <div class="chatlog__message " data-message-id="750385062997917828" id="message-750385062997917828">
+                <div class="chatlog__content">
+                    <div class="markdown">なるほど </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750385535264227480" id="message-750385535264227480">
+                <div class="chatlog__content">
+                    <div class="markdown">そうしたら削除対象で良さそうに思えます。wikiのコメント欄に「誹謗中傷や挑発的なことを書かないこと（違反した人は当wikiでのAARの作成をお断りします）← これ誰が追加した感じですか？削除しますよ」って残しておいて誰も反応しなかったら削除でいい気がします。わちゃわちゃになる感じであればDiscordでお願いしたいです <span class="chatlog__edited-timestamp" title="01-Sep-20 04:04 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="750385929683992659" id="message-750385929683992659">
+                <div class="chatlog__content">
+                    <div class="markdown">それでは、削除対応については自分の方で対応します </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128591;" title="&#128591;" src="https://twemoji.maxcdn.com/2/72x72/1f64f.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="750386156461490226" id="message-750386156461490226">
+                <div class="chatlog__content">
+                    <div class="markdown">ちなみに「記号や特殊文字をつかわないこと」って他のwikiにもある感じですかね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="750386253622411315" id="message-750386253622411315">
+                <div class="chatlog__content">
+                    <div class="markdown">ck2wiki以外にはないですね　「機種依存文字」がいろいろ大変だった頃の名残でしょうか </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="750386307171352607" id="message-750386307171352607">
+                <div class="chatlog__content">
+                    <div class="markdown">eu4wikiにもあるようです。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750386531063037993" id="message-750386531063037993">
+                <div class="chatlog__content">
+                    <div class="markdown">試したこと無いのですが絵文字の中には通常のシステムでは扱えないものがあって純粋に壊れるからですかね？こちらはとりあえず残しておいてもらいたいです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="750386805953789983" id="message-750386805953789983">
+                <div class="chatlog__content">
+                    <div class="markdown">わかりました
+画像についてはどうでしょう？　けっこう画像でサーバーに圧迫かけたりしちゃってますかね </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750386836676804709" id="message-750386836676804709">
+                <div class="chatlog__content">
+                    <div class="markdown">（画像多用AAR作者の一人でもあるので不安） </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="750386898098323556" id="message-750386898098323556">
+                <div class="chatlog__content">
+                    <div class="markdown">正直な話、画像よりもコメント投稿/表示がサーバ負担です。 <span class="chatlog__edited-timestamp" title="01-Sep-20 04:15 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="750386946143944775" id="message-750386946143944775">
+                <div class="chatlog__content">
+                    <div class="markdown">とりあえずwikiのコメント欄にコメント投げてきました
+9/2中に反応なければ消します、としています </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128591;" title="&#128591;" src="https://twemoji.maxcdn.com/2/72x72/1f64f.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="750387220204224632" id="message-750387220204224632">
+                <div class="chatlog__content">
+                    <div class="markdown">コメントが負担になるのは知りませんでした　パラドゲーwikiの中では、これらの記述があるのは少数派ではありますが、残しておいたほうが良いですか？ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750387398285721680" id="message-750387398285721680">
+                <div class="chatlog__content">
+                    <div class="markdown">あとページ構成に関する上二つのルールは、先日から議論されてるツリーの分類の明記のほうに統合できそうです <span class="chatlog__edited-timestamp" title="01-Sep-20 04:11 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 04:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="750387769507053579" id="message-750387769507053579">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">画像はあの手この手で容量を削りサーバーを労りましょう
+外部アップローダーを活用する手もあり
+</div>助かることは助かるので残しておいて貰えれば助かります。 </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/395424409172574211/ee61334cdd28b4d9d709ccbcbfe3418b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紫電カイ#8218" data-user-id="395424409172574211" style="">紫電カイ</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 06:08 PM</span>
+
+            <div class="chatlog__message " data-message-id="750416755054215210" id="message-750416755054215210">
+                <div class="chatlog__content">
+                    <div class="markdown">外部アップローダーの活用……これほんとにサーバー労れてるんですか？(無知) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 07:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="750440450728657016" id="message-750440450728657016">
+                <div class="chatlog__content">
+                    <div class="markdown">外部のサイトにおいてもらうと以下の点で利点があります。
+ 1.  ディスク容量が減らせる
+ 2. サーバから出ていくデータ量が減る
+この内、1については現時点でEU4/CK2合わせて2GB程度であり、仮に増えたとしてもほとんど問題ありません。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750440617292726383" id="message-750440617292726383">
+                <div class="chatlog__content">
+                    <div class="markdown">一方で2については転出データ量に比例して課金が発生しますので、できれば削減したいです。 <span class="chatlog__edited-timestamp" title="01-Sep-20 07:43 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750440835732209799" id="message-750440835732209799">
+                <div class="chatlog__content">
+                    <div class="markdown">画像を外部サイトにおいてもらうと、ページを読み込んだ人は外部サイトから画像をダウンロードしますので、上記の転出データ量が減らせます <span class="chatlog__edited-timestamp" title="01-Sep-20 07:44 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/395424409172574211/ee61334cdd28b4d9d709ccbcbfe3418b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紫電カイ#8218" data-user-id="395424409172574211" style="">紫電カイ</span>
+
+
+        <span class="chatlog__timestamp">01-Sep-20 07:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="750441742247133334" id="message-750441742247133334">
+                <div class="chatlog__content">
+                    <div class="markdown">これからも外部サイトにやります </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:39 AM</span>
+
+            <div class="chatlog__message " data-message-id="750515238964559902" id="message-750515238964559902">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="gnagaoka#6134">@gnagaoka</span>　さん　
+AARの削除規定に関することですが。
+とりあえずコメントの空気としても一週間猶予ってことで大丈夫にはなりましたので大丈夫ですが、一言
+
+管理人しかできない措置を勝手に規定したのは作成者が意図せずとも管理人の名を騙る行為（外からみたら管理人が書いたかと思う）です
+これを議論場の人が代理で削除する行為は、説明したとしても外から見るとどちらに正統性があるかわかりにくい事柄だと思います
+もちろん、経緯の説明を聞けばほぼすべての人に納得してもらえる事柄だとは思いますが
+
+この場合については上位であるgnagaokaさんの手で削除とした方が適切(荒れない）だったかと思います。
+
+あのAAR削除の文言が荒れるの防止のための自治的な運営の為にやったこととしても、勝手に管理人さんの権威を使用していることにはなります
+その権威を犯すのがリスクだと思ったからこそ紹運さんあたりは管理人連絡でgnagaokaさんに判断を投げたんだと思います
+。 <span class="chatlog__edited-timestamp" title="02-Sep-20 12:44 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750515790033321994" id="message-750515790033321994">
+                <div class="chatlog__content">
+                    <div class="markdown">そもそもなんですが、すくとも私と議論場でメインで喋る大多数は管理人さんにやってもらうことは少なくしようと心がけています。
+敢えてこちらで投げかける案件は管理人さんの許可や管理人さん自身じゃないとやる正統性がないので連絡をしているという次第です
+こちらに書かれる事柄に関しては、そこを承知の上で考えていただきたく思います。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:44 AM</span>
+
+            <div class="chatlog__message " data-message-id="750516590218313839" id="message-750516590218313839">
+                <div class="chatlog__content">
+                    <div class="markdown">確認ですが、「違反した人は当wikiでのAARの作成をお断りします」のことをいっていますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:45 AM</span>
+
+            <div class="chatlog__message " data-message-id="750516667318140979" id="message-750516667318140979">
+                <div class="chatlog__content">
+                    <div class="markdown">そうっす、これ管理人さんが書いたものって外からみると取られると思うんで </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750516727854661632" id="message-750516727854661632">
+                <div class="chatlog__content">
+                    <div class="markdown">これ削除するのは代理でやるとなんかありそうなので手が出せないって思いますよ少なくとも私は </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750516982171828257" id="message-750516982171828257">
+                <div class="chatlog__content">
+                    <div class="markdown">こういうところは手を出せるのは管理人さんしか資格がないと思うんです。敢えて出すと荒れると思います… <span class="chatlog__edited-timestamp" title="02-Sep-20 12:46 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:49 AM</span>
+
+            <div class="chatlog__message " data-message-id="750517703663419424" id="message-750517703663419424">
+                <div class="chatlog__content">
+                    <div class="markdown">間違っていたら教えてください、上記項目は管理人が自分で追加したもの（と外からは見られるから）、 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750517764762108015" id="message-750517764762108015">
+                <div class="chatlog__content">
+                    <div class="markdown">自分で撤回したようにしたほうが波乱なくてよかったということでしょうか </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="750517990247759882" id="message-750517990247759882">
+                <div class="chatlog__content">
+                    <div class="markdown">管理人さんがこれ私が作ったもんじゃないし、新ルール作成するから消しとく！書いておいて消せばいいかなってとこだったかなと <span class="chatlog__edited-timestamp" title="02-Sep-20 12:52 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750518031775563826" id="message-750518031775563826">
+                <div class="chatlog__content">
+                    <div class="markdown">それが管理人さんのものだったとすることは必要ないですね <span class="chatlog__edited-timestamp" title="02-Sep-20 12:50 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:50 AM</span>
+
+            <div class="chatlog__message " data-message-id="750518082480504835" id="message-750518082480504835">
+                <div class="chatlog__content">
+                    <div class="markdown">なるほど </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="750518461267968041" id="message-750518461267968041">
+                <div class="chatlog__content">
+                    <div class="markdown">細かい記述の訂正に管理人が(それと名乗って)出張るという前例ができるのもよくはないので、
+一般の編集者が合意を取って消すという流れで行くのも悪くはないとは思いますけどね
+コメント欄もまあ消すほうがいいかというような流れになっていますし(ここでの会話見た人がそう誘導してる可能性もありますが…) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:53 AM</span>
+
+            <div class="chatlog__message " data-message-id="750518720807436411" id="message-750518720807436411">
+                <div class="chatlog__content">
+                    <div class="markdown">この話の場合外から見て管理人さんがお断りっ！ってしてるように見れるものなので細かい記述の訂正というわけではないかと思う <span class="chatlog__edited-timestamp" title="02-Sep-20 12:54 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750519483411726436" id="message-750519483411726436">
+                <div class="chatlog__content">
+                    <div class="markdown">成者も抑止力で追加しただけだとは思うけどねそこらへんに悪意があるものとみてるわけでもないんだけどね、とりあえず管理者以外が手を出すのは怖い案件だって思います </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 12:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="750520201962848316" id="message-750520201962848316">
+                <div class="chatlog__content">
+                    <div class="markdown">わかりました。今度からソースがないルール（議論が無いもの）に関しては私が消すようにします <span class="chatlog__edited-timestamp" title="02-Sep-20 12:59 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="750520439570169958" id="message-750520439570169958">
+                <div class="chatlog__content">
+                    <div class="markdown">いえ、僕らが手を出しにくいものはここで案件にあげるんでとりあえずそれだけ考えてもらえればって感じです </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750520709079367681" id="message-750520709079367681">
+                <div class="chatlog__content">
+                    <div class="markdown">ソースがないルールどんどこ消すとかいう案件ではなくて、僕らが手を出すと危険だけど管理人さんがやるなら安全に済むってものがあるんで </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="750520781334905003" id="message-750520781334905003">
+                <div class="chatlog__content">
+                    <div class="markdown">そういう形で管理人が出張る体制になってしまうのがよくない(そう管理人に要請する人が出やすい体制になるのがよくない)と思いますので、管理人がそう名乗って記述を削除すること自体自分はあまりいいこととは思っていないんですよね <span class="chatlog__edited-timestamp" title="02-Sep-20 01:02 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:01 AM</span>
+
+            <div class="chatlog__message " data-message-id="750520782794260512" id="message-750520782794260512">
+                <div class="chatlog__content">
+                    <div class="markdown">それをここで相談させてもらってるんです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="750520972867665982" id="message-750520972867665982">
+                <div class="chatlog__content">
+                    <div class="markdown">ちょっとまだ自分が理解できていないかもしれない... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:02 AM</span>
+
+            <div class="chatlog__message " data-message-id="750521081739345977" id="message-750521081739345977">
+                <div class="chatlog__content">
+                    <div class="markdown">いや、僕の日本語は結構怪しいので大丈夫ですよ！ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750521350229196801" id="message-750521350229196801">
+                <div class="chatlog__content">
+                    <div class="markdown">わかりにくくて申し訳ない結構言われるのでウン… </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="750521403358576782" id="message-750521403358576782">
+                <div class="chatlog__content">
+                    <div class="markdown">いえいえ mm </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750521740773556275" id="message-750521740773556275">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">僕らが手を出すと危険だけど管理人さんがやるなら安全に済む
+</div>ここがまだ多分自分はわかってない感じです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:07 AM</span>
+
+            <div class="chatlog__message " data-message-id="750522203195441253" id="message-750522203195441253">
+                <div class="chatlog__content">
+                    <div class="markdown">ふーむ、まあ私のも一意見なのであれですが </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750522958614626354" id="message-750522958614626354">
+                <div class="chatlog__content">
+                    <div class="markdown">最終的にすべての事柄にケリを付けられるのは管理人さんになっちゃうんですよ。管理人さん以外にBANだ凍結だはできませんし </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750523235635822663" id="message-750523235635822663">
+                <div class="chatlog__content">
+                    <div class="markdown">議論場やコメ欄や編集者達の自治なんか究極の最終的には管理人さんの意見があれは飛びます。wikiとして崩壊するか否かはともかく </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750523509054373991" id="message-750523509054373991">
+                <div class="chatlog__content">
+                    <div class="markdown">EU4的には絶対君主（＝管理人）の元にある議会（＝wiki編集者達の自治）みたいな関係というかなんというか・・・ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750523645423779923" id="message-750523645423779923">
+                <div class="chatlog__content">
+                    <div class="markdown">だから管理人さんと思しき記述には相当な権威がついているように感じて怖いので手を出したくなかった。というのが僕がこの案件で思った事 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:13 AM</span>
+
+            <div class="chatlog__message " data-message-id="750523811446915193" id="message-750523811446915193">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございます。なんとなく、わかった気もします </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="750523905692794990" id="message-750523905692794990">
+                <div class="chatlog__content">
+                    <div class="markdown">まあもともともやっとした動機なので、いやでも微妙なたとえだなこれ・・・ <span class="chatlog__edited-timestamp" title="02-Sep-20 01:14 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750524334413578260" id="message-750524334413578260">
+                <div class="chatlog__content">
+                    <div class="markdown">まあなんとなくでも思ってくれれば </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="750524375178018826" id="message-750524375178018826">
+                <div class="chatlog__content">
+                    <div class="markdown">自分的には今回の問題の記述は全く書いてないので、これを消した場合に「管理人が消したか、やっぱあいつが追加したんだなｗｗｗ、ざまぁm9(^Д^)ﾌﾟｷﾞｬｰ」みたいに思われるのは正直嫌だったというのはあります... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="750525061877727294" id="message-750525061877727294">
+                <div class="chatlog__content">
+                    <div class="markdown">まあ追加した覚えのないものが放置されることの方が管理者のナニかを傷つけると思うのでそこは気にするべきではないかと </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750525632030441542" id="message-750525632030441542">
+                <div class="chatlog__content">
+                    <div class="markdown">管理者の誇るべきは一般利用者にとっての利益だと思います！煽りの文言など１ミリたりとも気にする必要はありませんね（過疎wiki管理人並みの感想） </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:21 AM</span>
+
+            <div class="chatlog__message " data-message-id="750525818500808722" id="message-750525818500808722">
+                <div class="chatlog__content">
+                    <div class="markdown">うーん、了解です。私にヘイトが集まっていい気持ちはしませんが、とりあえず、ここに上がったものについては今後私が処理するようにします </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:22 AM</span>
+
+            <div class="chatlog__message " data-message-id="750525952349437983" id="message-750525952349437983">
+                <div class="chatlog__content">
+                    <div class="markdown">いや、泥かぶって欲しいわけでもないのでそこまでというわけでは、ただ誰に何やって欲しい、自分がやるって判断を </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750525985195032727" id="message-750525985195032727">
+                <div class="chatlog__content">
+                    <div class="markdown">一旦１，２日感でも保留しておいて </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750526008393728020" id="message-750526008393728020">
+                <div class="chatlog__content">
+                    <div class="markdown">意見募ってどうするか決めればいいと思います </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526167542661294" id="message-750526167542661294">
+                <div class="chatlog__content">
+                    <div class="markdown">こういう（明らかに正当な）一件でも理屈の通らない屁理屈でヘイトを投げてくるような人は、
+もともとgnagaokaさん個人というより「管理者」という存在に対しヘイトを持ってる可能性が高いので、
+追加でBBRが加わるような事態にはならないと思いますよ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526227131138209" id="message-750526227131138209">
+                <div class="chatlog__content">
+                    <div class="markdown">個人的には管理人の了承を得たうえで誰かほかの編集者が実際の行動をするという形の方が望ましいと思うんですよね
+良くも悪くも管理人がそうと名乗ってwikiに介入すること自体があまりよろしくないと考えています </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526322966790145" id="message-750526322966790145">
+                <div class="chatlog__content">
+                    <div class="markdown">ほとんどの案件はぽんさんの言う範囲だと思うよ。僕も </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750526353505386576" id="message-750526353505386576">
+                <div class="chatlog__content">
+                    <div class="markdown">今回のこればかりはって思ったというだけ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:23 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526363496218624" id="message-750526363496218624">
+                <div class="chatlog__content">
+                    <div class="markdown">むしろ大多数のユーザーに「正しいことをやっているな」と思われたらlegitimacyが上がって良いと思います
+これはぽんさんとは意見が異なる点ではありますが </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750526397188931614" id="message-750526397188931614">
+                <div class="chatlog__content">
+                    <div class="markdown">私もそう思いますね　＞こればかりは </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:24 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526462540382208" id="message-750526462540382208">
+                <div class="chatlog__content">
+                    <div class="markdown">まあ今回のこれにしても実際のところのコメの推移を見れば安全かもって思うところはあるので </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:24 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526463211733013" id="message-750526463211733013">
+                <div class="chatlog__content">
+                    <div class="markdown">管理者を騙った（ように見てしまう）ものについてだからこそ、管理者が出る理屈が付く </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:24 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526562721464363" id="message-750526562721464363">
+                <div class="chatlog__content">
+                    <div class="markdown">僕が正しいと完全に主張できるわけでもないと思いますが </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:25 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526719869583420" id="message-750526719869583420">
+                <div class="chatlog__content">
+                    <div class="markdown">(自分はwikiの運営状況はレッセフェール派なのでその辺ちょっと差はある気がしますね) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:25 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526859950686208" id="message-750526859950686208">
+                <div class="chatlog__content">
+                    <div class="markdown">わいも正しいと思うはなんだかんだ収束する収束しないならそもそももう民度が絶望的だとして諦めるカナ… </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="750526941961912431" id="message-750526941961912431">
+                <div class="chatlog__content">
+                    <div class="markdown">まぁ確かに今回はもう少し自分が主体的に動くべきでしたね。正直面倒だったので丸投げしてしまったというのは反省です。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="750527063668031501" id="message-750527063668031501">
+                <div class="chatlog__content">
+                    <div class="markdown">時期が悪かった（CK3で忙しい） </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:26 AM</span>
+
+            <div class="chatlog__message " data-message-id="750527098107461662" id="message-750527098107461662">
+                <div class="chatlog__content">
+                    <div class="markdown">それな... </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="750527188369014916" id="message-750527188369014916">
+                <div class="chatlog__content">
+                    <div class="markdown">かしこみ、わいもやろうかと思ったけど別のかっちゃったわい </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="750527368166113371" id="message-750527368166113371">
+                <div class="chatlog__content">
+                    <div class="markdown">まあとりあえず、投げるか投げないかを一旦保留にして判断待ってくれればいいと思います </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/395424409172574211/ee61334cdd28b4d9d709ccbcbfe3418b.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紫電カイ#8218" data-user-id="395424409172574211" style="">紫電カイ</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:27 AM</span>
+
+            <div class="chatlog__message " data-message-id="750527385606029365" id="message-750527385606029365">
+                <div class="chatlog__content">
+                    <div class="markdown">POI<img class="emoji " alt="☆" title="☆" src="https://twemoji.maxcdn.com/2/72x72/2606.png"> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:29 AM</span>
+
+            <div class="chatlog__message " data-message-id="750527826876170402" id="message-750527826876170402">
+                <div class="chatlog__content">
+                    <div class="markdown">全部自分が削除したり凍結したりするのが時間的にしんどいときもあるので、コメ欄に行って、xxxさんに任せます見たい感じで頼むときもあるかもしれません。今回ダメだったのは、多分ここだけで誰かにお願いしたことだと思っていて、コメ欄に自分が行って依頼するように発言すればよかったと思います <span class="chatlog__edited-timestamp" title="02-Sep-20 01:32 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:30 AM</span>
+
+            <div class="chatlog__message " data-message-id="750528090387644457" id="message-750528090387644457">
+                <div class="chatlog__content">
+                    <div class="markdown">そこらへん匙加減は難しいですが、一基準としては「管理者権限に関わること」
+凍結やら（実効性ないけど）IPBANが関連しうるものについては、直接に出るというものがあるかもしれませんね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155220229725749249/cc78ce2aa25221c9dce1168b47fa8760.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="takawasi#1419" data-user-id="155220229725749249" style="">takawasi</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="750528268205031445" id="message-750528268205031445">
+                <div class="chatlog__content">
+                    <div class="markdown">まあ実際はほっとんどないですよ。僕も負担かけたくないです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">02-Sep-20 01:31 AM</span>
+
+            <div class="chatlog__message " data-message-id="750528402489999440" id="message-750528402489999440">
+                <div class="chatlog__content">
+                    <div class="markdown">助かります。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">03-Sep-20 11:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="751229899775148042" id="message-751229899775148042">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">1  「実際の運用の過程で不満の声が上がったり改善の提案がなされた場合は、議論や投票などにより変更することがあります。」の部分が、この表現で問題がないかgnagaokaさんに確認して頂きたい。
+</div><a href="https://discordapp.com/channels/749876460155699320/749876460155699323/751208224505724938" onclick="scrollToMessage(event, '751208224505724938')">https://discordapp.com/channels/749876460155699320/749876460155699323/751208224505724938</a>
+
+私は問題ないです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">04-Sep-20 12:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="751239306416488499" id="message-751239306416488499">
+                <div class="chatlog__content">
+                    <div class="markdown">承知しました。ありがとうございます! </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 12:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="752506634089005066" id="message-752506634089005066">
+                <div class="chatlog__content">
+                    <div class="markdown">jewishさんの草案仕上がりました
+あとはgnagaokaさんに内容を確認していただいた上で、投票方法等も示していただいて、wikiに開示するだけかと思われます </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 12:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="752511948184354907" id="message-752511948184354907">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうざいます。拝見させていただきます mm </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128522;" title="&#128522;" src="https://twemoji.maxcdn.com/2/72x72/1f60a.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 01:40 PM</span>
+
+            <div class="chatlog__message " data-message-id="752523614066180176" id="message-752523614066180176">
+                <div class="chatlog__content">
+                    <div class="markdown">いくつかの修正をしましたので相談させてください mm </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752523647528468481" id="message-752523647528468481">
+                <div class="chatlog__content">
+                    <div class="markdown">1) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752523744693583903" id="message-752523744693583903">
+                <div class="chatlog__content">
+                    <div class="markdown">0項から始まっていたのを1項から振り直しました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752523765312913488" id="message-752523765312913488">
+                <div class="chatlog__content">
+                    <div class="markdown">2) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752523862767435787" id="message-752523862767435787">
+                <div class="chatlog__content">
+                    <div class="markdown">ツリー化についての文章を柔らかい形にしました </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752523871894110290" id="message-752523871894110290">
+                <div class="chatlog__content">
+                    <div class="markdown">3) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752523991020863509" id="message-752523991020863509">
+                <div class="chatlog__content">
+                    <div class="markdown">編集合戦について、合意形成を目指してくださいという文章に変更しました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752523998260363405" id="message-752523998260363405">
+                <div class="chatlog__content">
+                    <div class="markdown">4) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752524092598648893" id="message-752524092598648893">
+                <div class="chatlog__content">
+                    <div class="markdown">荒らし行為についての文章が冗長な気がしたので調整しました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752524101977112617" id="message-752524101977112617">
+                <div class="chatlog__content">
+                    <div class="markdown">5) </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752524168867741707" id="message-752524168867741707">
+                <div class="chatlog__content">
+                    <div class="markdown">AARについて、文章を調整しました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752524404726169680" id="message-752524404726169680">
+                <div class="chatlog__content">
+                    <div class="markdown">jewishさんの隣のタブにコピーして作りました。お手数ですが、ご確認をお願いできますか？ <span class="mention" title="紹運#1834">@紹運</span> <span class="mention" title="jewish-dog#3823">@jewish-dog</span> 
+<a href="https://docs.google.com/spreadsheets/d/1pebb6RfL2f8KnbwBiTX3GC2k5lO6ak-xH9C4iOqZM-I/edit#gid=2052155781">https://docs.google.com/spreadsheets/d/1pebb6RfL2f8KnbwBiTX3GC2k5lO6ak-xH9C4iOqZM-I/edit#gid=2052155781</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://docs.google.com/spreadsheets/d/1pebb6RfL2f8KnbwBiTX3GC2k5lO6ak-xH9C4iOqZM-I/edit">
+                                                    <div class="markdown">EU4 wikiルール</div>
+                                                </a>
+                                        </div>
+
+                                        <div class="chatlog__embed-description">
+                                            <div class="markdown">論点整理
+
+
+本シートはEU4wikiにおけるルールの策定について、管理者であるgnagoka氏が利用者の意見を集めるためのものです。
+詳しい議論は　リンク先のDiscord 　で行われています。
+経緯について
+wiki内の「各国戦略/ポルトガル」のページにおいて、独自の主張を行う編集者と、それに反対する編集者の意見が対立。双方による誹謗中傷（と解釈可能な）のコメントが書かれていた。
+その結果、該当ページの意見対立部に関する「編集合戦」が発生したため、管理者であるgnagoka氏がページを...</div>
+                                        </div>
+
+                                </div>
+
+                                    <div class="chatlog__embed-thumbnail-container">
+                                        <a class="chatlog__embed-thumbnail-link" href="https://lh6.googleusercontent.com/SubpRYT3dfgqfxPhGODm6eniBSdEDvO8EhP3-Gk88BC9Yo3uxzhQyt5kFo419O8NWqITM8CNbQ=w1200-h630-p">
+                                            <img class="chatlog__embed-thumbnail" src="https://lh6.googleusercontent.com/SubpRYT3dfgqfxPhGODm6eniBSdEDvO8EhP3-Gk88BC9Yo3uxzhQyt5kFo419O8NWqITM8CNbQ=w1200-h630-p" alt="Thumbnail">
+                                        </a>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 01:49 PM</span>
+
+            <div class="chatlog__message " data-message-id="752525896019345638" id="message-752525896019345638">
+                <div class="chatlog__content">
+                    <div class="markdown">はい、現在確認中です。
+細かいところですが、1.2ツリー化についての脚注部分で
+「ツリーでの分類は読者に情報を得やすく、編集者も作業しやすいなどwikiを利用しやすくする目的で制定しています」
+の前半部分の文章が少しおかしく感じます。
+「ツリーでの分類は、読者にとっては情報を得やすく編集者にとっても作業しやすいなど、wikiを利用しやすくする目的で推奨しています」
+のような表現の方がしっくりくる気がします。(最後の部分は本文に合わせて制定→推奨にしました) </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 01:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="752526119369965608" id="message-752526119369965608">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうざいます。その部分文章を悩んでいました </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:00 PM</span>
+
+            <div class="chatlog__message " data-message-id="752528784825253977" id="message-752528784825253977">
+                <div class="chatlog__content">
+                    <div class="markdown">一通り拝読させていただきました。先ほどの提案部分はすでに取り入れて頂いたようなので、私は文面についてはこちらで問題ないように思います。
+もちろん内容に関しても異論等はございません。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:01 PM</span>
+
+            <div class="chatlog__message " data-message-id="752528891838464077" id="message-752528891838464077">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうざいます m(<em> </em>)m <span class="chatlog__edited-timestamp" title="07-Sep-20 02:01 PM">(edited)</span></div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128522;" title="&#128522;" src="https://twemoji.maxcdn.com/2/72x72/1f60a.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="chatlog__message " data-message-id="752529308026798151" id="message-752529308026798151">
+                <div class="chatlog__content">
+                    <div class="markdown">掲示について先に相談させてください。１のお願い事項と２のルールは独立したページを作り、トップからそのページへのリンクを貼る形で掲示しようと考えていますが、問題ありませんか？ <span class="chatlog__edited-timestamp" title="07-Sep-20 02:03 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752530100225966122" id="message-752530100225966122">
+                <div class="chatlog__content">
+                    <div class="markdown">あ、勘違いしていたかも... 以下本文～本文ここまでが１ページですね。これを独立したページにして掲示する形で考えています <span class="chatlog__edited-timestamp" title="07-Sep-20 02:06 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="752530280224522281" id="message-752530280224522281">
+                <div class="chatlog__content">
+                    <div class="markdown">以前一般板で話していた時は、皆さんは1と2をまとめた状態で方針(仮名)ページとして、トップページから飛べる形を想定していたように思います。
+私もそのつもりで草案を書きましたので、別ページにするのであれば「以上が新たなルール案です。～」部分の表現を変える必要はあると思います。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="752530413267845130" id="message-752530413267845130">
+                <div class="chatlog__content">
+                    <div class="markdown">すみません、そのようでした mm </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="752530885710053438" id="message-752530885710053438">
+                <div class="chatlog__content">
+                    <div class="markdown">幸い項目数も文章もかなりすっきりしたものになったので、1つのページにまとめてしまっても良いかな、と思います。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="752531018010984499" id="message-752531018010984499">
+                <div class="chatlog__content">
+                    <div class="markdown">はい、承知しました！ 1ページにしておく感じにします mm </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128518;" title="&#128518;" src="https://twemoji.maxcdn.com/2/72x72/1f606.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="chatlog__message " data-message-id="752531379656458352" id="message-752531379656458352">
+                <div class="chatlog__content">
+                    <div class="markdown">文章が良さそうであれば、Goサインをお願いします、ページを作成してトップページを編集しようと思います </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="752531797853732904" id="message-752531797853732904">
+                <div class="chatlog__content">
+                    <div class="markdown">あ、念のためですが2.2の取り消し線の部分と、私が付けたコメントは消してくださいね
+(いや編集できないようにするからコメントは読まれる心配はないのか?)。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="752531897858392155" id="message-752531897858392155">
+                <div class="chatlog__content">
+                    <div class="markdown">承知しました！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="752532073771958352" id="message-752532073771958352">
+                <div class="chatlog__content">
+                    <div class="markdown">私は先ほども書いたように異論等はありません。お願いします </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128582;‍♂️" title="&#128582;‍♂️" src="https://twemoji.maxcdn.com/2/72x72/1f646-200d-2642.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="752534705735467008" id="message-752534705735467008">
+                <div class="chatlog__content">
+                    <div class="markdown">暫定ルール置き場、ツリー化されてます？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="752534800107044905" id="message-752534800107044905">
+                <div class="chatlog__content">
+                    <div class="markdown">これはどこに置くのがベストでしょうか <span class="chatlog__edited-timestamp" title="07-Sep-20 02:24 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="752534898560204830" id="message-752534898560204830">
+                <div class="chatlog__content">
+                    <div class="markdown">とりあえずこれはツリー化しなくても良いものであると考えます </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:25 PM</span>
+
+            <div class="chatlog__message " data-message-id="752535020698337321" id="message-752535020698337321">
+                <div class="chatlog__content">
+                    <div class="markdown">トップのwikiルールの所がいいと思います </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752535374697463888" id="message-752535374697463888">
+                <div class="chatlog__content">
+                    <div class="markdown">1.2でツリー化推奨って書かれてるページが更新で流れたら笑いもんですよ <span class="chatlog__edited-timestamp" title="07-Sep-20 02:27 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="752535487545344130" id="message-752535487545344130">
+                <div class="chatlog__content">
+                    <div class="markdown">現在でもたとえば「LINK」とかツリー化されてない、正確に言えば「ツリー最上位」ですからねえ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="752535541479768165" id="message-752535541479768165">
+                <div class="chatlog__content">
+                    <div class="markdown">なるほど </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:27 PM</span>
+
+            <div class="chatlog__message " data-message-id="752535629342048307" id="message-752535629342048307">
+                <div class="chatlog__content">
+                    <div class="markdown">無理にツリー化するならEU4関係以外のページをwiki管理用としてまとめるぐらいですかね? </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="752535776310591588" id="message-752535776310591588">
+                <div class="chatlog__content">
+                    <div class="markdown">まあツリーというより流れないようにして頂きたいです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="752535824469327923" id="message-752535824469327923">
+                <div class="chatlog__content">
+                    <div class="markdown">フロントページからリンクが貼られるものと考えます </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752535851455610990" id="message-752535851455610990">
+                <div class="chatlog__content">
+                    <div class="markdown">心配ならINDEXにリンクを載せておくことですかね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="752535972557881374" id="message-752535972557881374">
+                <div class="chatlog__content">
+                    <div class="markdown">例えば「方針・運営について」のようなツリー最上位をINDEXのコメントの下に作っておき、今後の投票ページなどもその下位に属するようにすればどうでしょうか? </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752536345716719636" id="message-752536345716719636">
+                <div class="chatlog__content">
+                    <div class="markdown">と思ったけどトップページとINDEXに直接「暫定ルール置き場」へのリンクがある方が分かりやすそうですね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:32 PM</span>
+
+            <div class="chatlog__message " data-message-id="752536779080335430" id="message-752536779080335430">
+                <div class="chatlog__content">
+                    <div class="markdown">一旦INDEXの方に、暫定ルール置き場を追加する形にさせてください。 </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128582;‍♂️" title="&#128582;‍♂️" src="https://twemoji.maxcdn.com/2/72x72/1f646-200d-2642.png">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="chatlog__message " data-message-id="752537546780573815" id="message-752537546780573815">
+                <div class="chatlog__content">
+                    <div class="markdown">掲示期間ですが、今週の金曜日とするのが切がよくて良いと思いますがいかがでしょうか <span class="chatlog__edited-timestamp" title="07-Sep-20 02:35 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="752537667107029033" id="message-752537667107029033">
+                <div class="chatlog__content">
+                    <div class="markdown">土日を挟んだほうが周知期間としてはいいのではないでしょうか </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:36 PM</span>
+
+            <div class="chatlog__message " data-message-id="752537804965282003" id="message-752537804965282003">
+                <div class="chatlog__content">
+                    <div class="markdown">なるほど </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="752537931104780428" id="message-752537931104780428">
+                <div class="chatlog__content">
+                    <div class="markdown">丁度1週間で14日(月)まで、とするのが最も分かりやすいかと <span class="chatlog__edited-timestamp" title="07-Sep-20 02:37 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:37 PM</span>
+
+            <div class="chatlog__message " data-message-id="752538018748956742" id="message-752538018748956742">
+                <div class="chatlog__content">
+                    <div class="markdown">良さそうですね、その案を採用させていただきます mm </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:39 PM</span>
+
+            <div class="chatlog__message " data-message-id="752538499520921733" id="message-752538499520921733">
+                <div class="chatlog__content">
+                    <div class="markdown">一通り編集が終わったら、念の為に暫定ルールページも凍結しておいてもらったほうが良さそうですね </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:42 PM</span>
+
+            <div class="chatlog__message " data-message-id="752539363857924176" id="message-752539363857924176">
+                <div class="chatlog__content">
+                    <div class="markdown">2.2の「どういったものが「荒らし行為」に該当するかの具体例は、リンク先の記事の類型に準じます。」が残っているようです。
+gnagaokaさんの改良された1行目で十分でしょうから、先ほどの取り消し線の通り消した方が良いかと思います </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:43 PM</span>
+
+            <div class="chatlog__message " data-message-id="752539623460438056" id="message-752539623460438056">
+                <div class="chatlog__content">
+                    <div class="markdown">凍結＞承知です
+取り消し線＞すみません、修正します。 </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="752540738704900269" id="message-752540738704900269">
+                <div class="chatlog__content">
+                    <div class="markdown">すみません、本当に細かい部分で恐縮ですが、1.2の3行目のみ文末の「。」がないようです。
+もしかすると私の草案の段階で忘れていたのかもしれません。すみませんがこちらもお願いします&lt;(<em> </em>)&gt; </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:48 PM</span>
+
+            <div class="chatlog__message " data-message-id="752540821068447766" id="message-752540821068447766">
+                <div class="chatlog__content">
+                    <div class="markdown">承知です！ </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128583;‍♂️" title="&#128583;‍♂️" src="https://twemoji.maxcdn.com/2/72x72/1f647-200d-2642.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+            <div class="chatlog__message " data-message-id="752541196475170908" id="message-752541196475170908">
+                <div class="chatlog__content">
+                    <div class="markdown">トップページとルール置き場について準備完了しました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752541223813775411" id="message-752541223813775411">
+                <div class="chatlog__content">
+                    <div class="markdown">皆様本当にありがとうございました nn </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:50 PM</span>
+
+            <div class="chatlog__message " data-message-id="752541355061936239" id="message-752541355061936239">
+                <div class="chatlog__content">
+                    <div class="markdown">こちらこそありがとうございます。今後ともよろしくお願いいたします。 </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128583;‍♂️" title="&#128583;‍♂️" src="https://twemoji.maxcdn.com/2/72x72/1f647-200d-2642.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 02:55 PM</span>
+
+            <div class="chatlog__message " data-message-id="752542475498946573" id="message-752542475498946573">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="http://eu4.paradwiki.org/?%25E3%2582%25B3%25E3%2583%25A1%25E3%2583%25B3%25E3%2583%2588%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%258A%25E3%2583%25BC/wiki%25E9%2581%258B%25E5%2596%25B6%25E8%25AD%25B0%25E8%25AB%2596%25E7%2594%25A8">http://eu4.paradwiki.org/?%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B3%E3%83%BC%E3%83%8A%E3%83%BC/wiki%E9%81%8B%E5%96%B6%E8%AD%B0%E8%AB%96%E7%94%A8</a>
+対象のコメントコーナーのほうですが、勝手になりますがコピペしていくつか記しておきました </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752542545480908851" id="message-752542545480908851">
+                <div class="chatlog__content">
+                    <div class="markdown">ご確認ください　また、一応ここも凍結しておいたいただいたほうが良いかもしれません </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 03:06 PM</span>
+
+            <div class="chatlog__message " data-message-id="752545418096934912" id="message-752545418096934912">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうざいます。コメント上の方のテキストだけ凍結できる感じですか？凍結してみました。
+コメント欄まで凍結されていないと思いますが、問題ありましたら教えて下さい mm </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752545543888044042" id="message-752545543888044042">
+                <div class="chatlog__content">
+                    <div class="markdown">（あまりpukiwikiのコメント欄の仕組みがわかっていません...） </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/155267907381624832/2419b3c7a9aade3c6047fc2bb4c45688.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="紹運#1834" data-user-id="155267907381624832" style="">紹運</span>
+
+
+        <span class="chatlog__timestamp">07-Sep-20 03:07 PM</span>
+
+            <div class="chatlog__message " data-message-id="752545713765744750" id="message-752545713765744750">
+                <div class="chatlog__content">
+                    <div class="markdown">本ページが凍結されていても、コメ欄は差し支えなく使えるようです、確認しておきました </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128583;‍♂️" title="&#128583;‍♂️" src="https://twemoji.maxcdn.com/2/72x72/1f647-200d-2642.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">08-Sep-20 10:56 AM</span>
+
+            <div class="chatlog__message " data-message-id="752844786867896332" id="message-752844786867896332">
+                <div class="chatlog__content">
+                    <div class="markdown"><div class="quote">管理人はAAR作者をどう判別するの?
+</div>質問にあったこれは盲点でした。確かに難しいですね。IPは何故かたまに通知が来ないことが有るので、できればこれを持って確認するにはなしにしたいです。トリップ機能がpukiwkiにあればいいのですが、ちょっと探した感じだと無いですね.. </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="752845130511155250" id="message-752845130511155250">
+                <div class="chatlog__content">
+                    <div class="markdown">これで実装すればいいかもしれないので少し見ます
+<a href="https://ja.wikipedia.org/wiki/%25E3%2583%2588%25E3%2583%25AA%25E3%2583%2583%25E3%2583%2597_(%25E9%259B%25BB%25E5%25AD%2590%25E6%258E%25B2%25E7%25A4%25BA%25E6%259D%25BF)">https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%83%83%E3%83%97_(%E9%9B%BB%E5%AD%90%E6%8E%B2%E7%A4%BA%E6%9D%BF)</a> </div>
+                </div>
+
+
+                    <div class="chatlog__embed">
+                            <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                        <div class="chatlog__embed-content-container">
+                            <div class="chatlog__embed-content">
+                                <div class="chatlog__embed-text">
+
+                                        <div class="chatlog__embed-title">
+                                                <a class="chatlog__embed-title-link" href="https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%83%83%E3%83%97_(%E9%9B%BB%E5%AD%90%E6%8E%B2%E7%A4%BA%E6%9D%BF)">
+                                                    <div class="markdown">%E3%83%88%E3%83%AA%E3%83%83%E3%83%97_(%E9%9B%BB%E5%AD%90%E6%8E%B2%E...</div>
+                                                </a>
+                                        </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128583;‍♂️" title="&#128583;‍♂️" src="https://twemoji.maxcdn.com/2/72x72/1f647-200d-2642.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">09-Sep-20 12:28 PM</span>
+
+            <div class="chatlog__message " data-message-id="753230360610865193" id="message-753230360610865193">
+                <div class="chatlog__content">
+                    <div class="markdown">コメントで寄せられた質問に対する回答の草案が仕上がりましたので、内容をご確認いただいたうえで
+wikiの[[コメントコーナー/wiki運営議論用]]に載せて頂きたいのですが、宜しいでしょうか?
+以下が質問とそれに対する回答の草案です。
+
+&gt;何か出てきたが、議論が成り立たない場合は永久に凍結状態ってことでいいのかな？ -- 2020-09-07 (月) 23:44:34
+ルール2.1は議論に収拾をつける取り組みを定めるものではなく、あくまで&#39;&#39;編集合戦という事象&#39;&#39;に対応するルールと受け取っていただきたく思います。
+もちろん議論により内容の合意形成を得ることが一番望ましいですが、凍結はそれが難しい場合にクールダウンの期間を設けることを意図しています。
+そのため、管理人の裁量によってある程度の期間で凍結解除されることになります。
+
+&gt;「AARページはそのAARの作成者のみが編集する権利を持つ」アカウントとかあるわけでもないのに、作成者かどうかってどうやって判断するの？ -- 2020-09-08 (火) 14:32:55
+pukiwikiはデフォルトの機能として編集者のIPを記録しており、管理者はそれを確認することができるため、IPを用いた本人確認が可能です。
+
+&gt;「凍結している間にDiscordの該当チャンネルで議論を行い合意形成を」なんで外部でやるの？　コメント欄でいいのでは？ -- 2020-09-08 (火) 14:35:37
+先例となった[[各国戦略/ポルトガル]]のページと同じく、原則として対象ページのコメント欄も同時に凍結することを想定しています。
+編集合戦が生じている場合、関連する人々が感情的になっている可能性が高いため、時間を置くことで落ち着きを取り戻していただくことがその狙いです。
+その上で、凍結期間中に議論を続けたい場合の避難所としてDiscordを紹介しており、場所を変えることによる空気の入れ替えも期待しています。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">09-Sep-20 01:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="753240754264211596" id="message-753240754264211596">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="gnagaoka#6134">@gnagaoka</span> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">09-Sep-20 08:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="753355990665265152" id="message-753355990665265152">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうざいます。拝見致します </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753356228771709060" id="message-753356228771709060">
+                <div class="chatlog__content">
+                    <div class="markdown">はい、異論ありません。ありがとうざいます mm </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 12:52 AM</span>
+
+            <div class="chatlog__message " data-message-id="753417700038148228" id="message-753417700038148228">
+                <div class="chatlog__content">
+                    <div class="markdown">遅れましたが、wikiの方に上記の文章を載せましたmm
+<a href="http://eu4.paradwiki.org/?%25E3%2582%25B3%25E3%2583%25A1%25E3%2583%25B3%25E3%2583%2588%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%258A%25E3%2583%25BC/wiki%25E9%2581%258B%25E5%2596%25B6%25E8%25AD%25B0%25E8%25AB%2596%25E7%2594%25A8">http://eu4.paradwiki.org/?%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B3%E3%83%BC%E3%83%8A%E3%83%BC/wiki%E9%81%8B%E5%96%B6%E8%AD%B0%E8%AB%96%E7%94%A8</a> </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 12:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="753590530973237249" id="message-753590530973237249">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="gnagaoka#6134">@gnagaoka</span> コメントで寄せられた新たな質問に対する回答の草案が仕上がりました。
+それに伴いルール案の項目名とそれに伴う次項内の表現を変更することで、Discord内では合意が取れました。
+
+まず質問とそれに対する回答が
+
+＞すぐにコメントまで凍結してdiscordに誘導するのではなく、まずはコメントで話し合うようにしてほしい。discordだと気軽に読めず第三者が読みに入っていくのに心理的ハードルがあるし、discordってログを追うのにあまり向いてないし。 -- 2020-09-09 (水) 20:16:30
+編集合戦が起きる前にコメント欄での話し合いは既に行われた、という状況を想定しています。
+今回のポルトガル戦略の件や他のwikiでの前例などから、コメント欄でのやり取りなしで編集合戦だけが先行するケースは稀であると思われます。
+
+＞細かいところだけど暫定ルールの2.3AARをAAR作成者の権利侵害っていう2.4その他のところに書かれているのと同じ表記にしないのはなんで？編集合戦と荒らし行為というマイナスな言葉と同列に並べられてる感がちょっと出てるような気がして奇妙 -- 2020-09-09 (水) 21:40:21
+「どのような条件においてのみ凍結対応を行うか」という形で議論が醸成されていったため、2.1から2.3までが並列する形となりました。
+その上で、2.1と2.2の項目名が凍結対応を実施する事象であるのに対し、2.3の項目名が凍結を行う箇所であるのは記述の統一性という面から
+修正が必要という議論がでましたので、2.3の項目名を「AAR」から「AAR作成者からの要請」へ変更します。
+
+
+続いて後者の質問及び回答に関連して、
+ルール案2.3の項目名を「AAR」から「AAR作成者からの要請」に変更
+それに伴いルール案の2.4の()内もそれに合わせて「AAR作成者の権利侵害」から「AAR作成者からの要請」に変更
+
+
+以上をご確認の上、問題等がなければご対応願いたいのですが宜しいでしょうか? <span class="chatlog__edited-timestamp" title="10-Sep-20 12:21 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 06:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="753680489524756503" id="message-753680489524756503">
+                <div class="chatlog__content">
+                    <div class="markdown">承知しました、拝見致します！ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">10-Sep-20 11:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="753754008535171182" id="message-753754008535171182">
+                <div class="chatlog__content">
+                    <div class="markdown">はい、異論ありません。上記で掲示致します </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753755566739816468" id="message-753755566739816468">
+                <div class="chatlog__content">
+                    <div class="markdown">wikiの方に上記の文章を載せるのと、ルールの訂正をしました mm
+- <a href="http://eu4.paradwiki.org/?%25E3%2582%25B3%25E3%2583%25A1%25E3%2583%25B3%25E3%2583%2588%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%258A%25E3%2583%25BC/wiki%25E9%2581%258B%25E5%2596%25B6%25E8%25AD%25B0%25E8%25AB%2596%25E7%2594%25A8">http://eu4.paradwiki.org/?%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B3%E3%83%BC%E3%83%8A%E3%83%BC/wiki%E9%81%8B%E5%96%B6%E8%AD%B0%E8%AB%96%E7%94%A8</a>
+- <a href="http://eu4.paradwiki.org/?wiki%25E6%259A%25AB%25E5%25AE%259A%25E3%2583%25AB%25E3%2583%25BC%25E3%2583%25AB%25E7%25BD%25AE%25E3%2581%258D%25E5%25A0%25B4">http://eu4.paradwiki.org/?wiki%E6%9A%AB%E5%AE%9A%E3%83%AB%E3%83%BC%E3%83%AB%E7%BD%AE%E3%81%8D%E5%A0%B4</a> </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 03:41 AM</span>
+
+            <div class="chatlog__message " data-message-id="753822612261699765" id="message-753822612261699765">
+                <div class="chatlog__content">
+                    <div class="markdown">ck2 wikiで荒らしがあったため、一部のIP範囲をACL（Access Control List）からDENYしました。システム上EU4と共通なので見れなくなった場合教えてください mm <span class="chatlog__edited-timestamp" title="11-Sep-20 03:45 AM">(edited)</span></div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="753874116943282236" id="message-753874116943282236">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="シルバーマイン#0706">@シルバーマイン</span> 
+カウンターの詳細はこんな感じです（昨日の１日分  9/10） <span class="chatlog__edited-timestamp" title="11-Sep-20 07:13 AM">(edited)</span></div>
+                </div>
+
+                    <div class="chatlog__attachment">
+                            <a href="https://cdn.discordapp.com/attachments/749978066528501771/753874116762796092/unknown.png">
+                                    <img class="chatlog__attachment-thumbnail" src="https://cdn.discordapp.com/attachments/749978066528501771/753874116762796092/unknown.png" alt="Attachment">
+                            </a>
+                    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:07 AM</span>
+
+            <div class="chatlog__message " data-message-id="753874226766938143" id="message-753874226766938143">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございます </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753874807141171260" id="message-753874807141171260">
+                <div class="chatlog__content">
+                    <div class="markdown">カウンターって復活した所からカウントしてる感じですか？
+それともこれまでの分全て(つまり復活前のもの含めて)カウントしている感じですか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:10 AM</span>
+
+            <div class="chatlog__message " data-message-id="753875200038404146" id="message-753875200038404146">
+                <div class="chatlog__content">
+                    <div class="markdown">3月に移管されたときからこの前復活させたときまでのカウントはどんなに見られても1日１カウント加算になっています。
+復活させた以降はちゃんと加算されています </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="753875254547447871" id="message-753875254547447871">
+                <div class="chatlog__content">
+                    <div class="markdown">なるほど </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:11 AM</span>
+
+            <div class="chatlog__message " data-message-id="753875347304611906" id="message-753875347304611906">
+                <div class="chatlog__content">
+                    <div class="markdown">もし希望あればgoogle analyticsの共有します mm </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:14 AM</span>
+
+            <div class="chatlog__message " data-message-id="753875992115675167" id="message-753875992115675167">
+                <div class="chatlog__content">
+                    <div class="markdown">それって一般利用者が見ちゃって大丈夫なやつですか？ </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753876158600445972" id="message-753876158600445972">
+                <div class="chatlog__content">
+                    <div class="markdown">すいません
+あまりpcやプログラム周りに詳しくないものでして… </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:15 AM</span>
+
+            <div class="chatlog__message " data-message-id="753876448011354112" id="message-753876448011354112">
+                <div class="chatlog__content">
+                    <div class="markdown">実は自分もこの前使い始めたばかりです。まだ使い方はっきりわかっていないのですが、共有レポートという機能があるようです。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753876664802476042" id="message-753876664802476042">
+                <div class="chatlog__content">
+                    <div class="markdown">ウェブページみたいにみんなが見えるようにできるかと思ったのですが、google アカウントを教えてもらってファイル（レポート）を共有するみたいな感じのようです </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:18 AM</span>
+
+            <div class="chatlog__message " data-message-id="753877040402399283" id="message-753877040402399283">
+                <div class="chatlog__content">
+                    <div class="markdown">見てみないとよくわからないタイプのやつですね
+お手数ですが共有お願いします </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:19 AM</span>
+
+            <div class="chatlog__message " data-message-id="753877265560895548" id="message-753877265560895548">
+                <div class="chatlog__content">
+                    <div class="markdown">承知しました。今朝この機能を見つけたので、自分が持っている複数のアカウントで試してからやり方お知らせ致します mm </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:36 AM</span>
+
+            <div class="chatlog__message " data-message-id="753881767085211728" id="message-753881767085211728">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="シルバーマイン#0706">@シルバーマイン</span> 
+gmailのアドレスを教えてもらえますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/625650741591277581/b0ba590137920ef88d8ceb3818af6d39.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="シルバーマイン#0706" data-user-id="625650741591277581" style="">シルバーマイン</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 07:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="753882118253314078" id="message-753882118253314078">
+                <div class="chatlog__content">
+                    <div class="markdown">個チャで直接送りました </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753882126218428507" id="message-753882126218428507">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございます </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 09:35 AM</span>
+
+            <div class="chatlog__message " data-message-id="753911685940641802" id="message-753911685940641802">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="gnagaoka#6134">@gnagaoka</span> 先ほどコメントコーナーに次のような長文の質問(兼提案)が届きました。
+
+細かいところだけどルールの投票について、「どちらでもいい」の項目は「どちらかといえば賛成」と「どちらかといえば反対」に分けた方がいいと思う。長文すみませんが理由としてはDiscordで議論してる人たち（以下運営と書きます）が自分たち以外のもっと多数の意見を取り入れたいという思いがあるという前提で考えるとこのコメントコーナーに投稿している人たちだって全体から見れば少数派でそれ以外の多数派の人の意見がわかるのは基本的にこの投票だけ。けれどコメント欄に何も投稿しないってことは積極的意見を持ち合わせていないまたはどうでもいいってことだろう（自分が考え得る限りだからもしかしたら違うかもしれないけど）。賛成または反対を選ぶ人は少ないだろうから消極的意見しか持ち合わせていない人たちが選びやすいように「どちらでもいい」っていう選択肢をつくったのはいいけどそれは結局処理に困る無効票みたいなものにしかならないと思うんだけど。けどそれをなくしたら多分投票しない人もそこそこ出てくるだろうから消極的だけど意思決定を促す選択肢が必要だと思う。もし前提が間違っていてこのルールはコメント欄に投稿するような人しか関わりが濃くないから積極的意見しかいらない投票だよっていうのなら今までの選択肢でいいと思うけど。ってことで運営や管理者さんたちがどう考えているのか知りたい。ぜひご一考を。もし皮肉っぽくなってたり偉そうになってたとしたらすいません。 -- 2020-09-11 (金) 18:04:07
+
+シルバーマインさんによる要約は
+
+wiki上でコメントする人達はルール投票に参加する人達より少数派だろうけど非コメント民の多くはは消極的意見しか持たないor無関心だと思われるから消極的選択肢にもベクトルをつけないと無効票が積み重なって終わるかもしれんよ？ってとこ
+
+です。これに対する回答を考えるにあたっては、gnagaokaさんが投票項目に「どちらでもいい」を追加することを望まれた意図をお尋ねする必要がある、とDiscord内で指摘がありました。
+
+お手数ですがその意図を教えていただけますでしょうか。また、加えてこの提案(「どちらかといえば賛成」と「どちらかといえば反対」に分ける)についてのお考えもお尋ねしたいです。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 09:38 AM</span>
+
+            <div class="chatlog__message " data-message-id="753912270005862400" id="message-753912270005862400">
+                <div class="chatlog__content">
+                    <div class="markdown">「どちらでもいい」という項目の追加の意図ですね。承知しました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753912398464679957" id="message-753912398464679957">
+                <div class="chatlog__content">
+                    <div class="markdown">以前ここに来られたwtさんが全体の空気感（多数派がなんであるか）を大事にしたいといってました。 <span class="chatlog__edited-timestamp" title="11-Sep-20 09:50 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753912734273372190" id="message-753912734273372190">
+                <div class="chatlog__content">
+                    <div class="markdown">「はい」、「いいえ」だけだと議論に興味ない人が無視されると思いました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753913258917756989" id="message-753913258917756989">
+                <div class="chatlog__content">
+                    <div class="markdown">（wikiのアクセスログを見ていますが、実際多くの人がデータページや一部のAARは見ていますが、提示したルールは残念ながらあまり見てもらっていません... ) <span class="chatlog__edited-timestamp" title="11-Sep-20 09:43 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753913705825304606" id="message-753913705825304606">
+                <div class="chatlog__content">
+                    <div class="markdown">議論に興味ない人というのは、データやAARだけ見て、コメントやAARを書かない人たちが多いと思います。 <span class="chatlog__edited-timestamp" title="11-Sep-20 09:44 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753913910356082749" id="message-753913910356082749">
+                <div class="chatlog__content">
+                    <div class="markdown">そういうROM専の人もたくさんいて、ちゃんと投票できるようにしたかったです <span class="chatlog__edited-timestamp" title="11-Sep-20 09:46 AM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="753914111951110184" id="message-753914111951110184">
+                <div class="chatlog__content">
+                    <div class="markdown">あまりうまく伝えられずすいません <img class="emoji " alt="🙇" title="🙇" src="https://twemoji.maxcdn.com/2/72x72/1f647.png">‍♂️ </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 09:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="753914321804853298" id="message-753914321804853298">
+                <div class="chatlog__content">
+                    <div class="markdown">いえ、ありがとうございます。提案についてはいかがお考えでしょうか? </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 09:47 AM</span>
+
+            <div class="chatlog__message " data-message-id="753914726777487402" id="message-753914726777487402">
+                <div class="chatlog__content">
+                    <div class="markdown">「どちらかといえば賛成」と「どちらかといえば反対」ですね。良いと思います。
+賛成は+２で、どちらかといえば賛成は＋１など票の扱いについては分けますか？ </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 09:48 AM</span>
+
+            <div class="chatlog__message " data-message-id="753914958831550475" id="message-753914958831550475">
+                <div class="chatlog__content">
+                    <div class="markdown">&gt;賛成は+２で、どちらかといえば賛成は＋１など票の扱いについては分けますか？
+いえ、それらに関してはまだ議論できていません。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 09:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="753917324423331861" id="message-753917324423331861">
+                <div class="chatlog__content">
+                    <div class="markdown">票数を同じにする場合は、
+<div class="pre pre--multiline nohighlight">○ 賛成もしくはどちらかといえば賛成
+○ どちらでもよい
+○ 反対もしくはどちらかといえば反対</div>
+のようにするか
+<div class="pre pre--multiline nohighlight">○ 賛成
+○ どちらかといえば賛成
+○ どちらでもよい
+○ どちらかといえば反対
+○ 反対</div>
+するかと言うのもあります。集計はどちらも同じですが、全体の意見を聞く感じであれば下側のほうがベストかなと思っております </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 09:59 AM</span>
+
+            <div class="chatlog__message " data-message-id="753917580908953601" id="message-753917580908953601">
+                <div class="chatlog__content">
+                    <div class="markdown">下側、票の重みはつけない、が良さそうですね </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="☺️" title="☺️" src="https://twemoji.maxcdn.com/2/72x72/263a.png">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 10:03 AM</span>
+
+            <div class="chatlog__message " data-message-id="753918581246525470" id="message-753918581246525470">
+                <div class="chatlog__content">
+                    <div class="markdown">とりあえず長文質問のこの部分に対する回答案を考えてみました。私の理解に間違い等ないでしょうか?
+&gt;運営や管理者さんたちがどう考えているのか知りたい
+
+まず投票項目に「どちらでもいい」を追加した背景には、管理者の「全体の空気感（多数派がなんであるか）を大事にしたい」という想いが根底にあります。
+「はい」、「いいえ」だけだと議論に興味ない人(データやAARだけ見て、コメントやAARを書かない人たちが多いと思います)が無視されるのではないか、
+という危惧があったため、そのような閲覧のみの利用者の方々にも投票しやすい選択肢を設けたかった、というのが「どちらでもいい」を項目に入れた理由です。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 10:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="753918817830174790" id="message-753918817830174790">
+                <div class="chatlog__content">
+                    <div class="markdown">はい！あっております！ </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748494566851739752/7d61a4b11a318f11b7753b2018f06377.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="jewish-dog#3823" data-user-id="748494566851739752" style="">jewish-dog</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 10:05 AM</span>
+
+            <div class="chatlog__message " data-message-id="753919234794586234" id="message-753919234794586234">
+                <div class="chatlog__content">
+                    <div class="markdown">とりあえず「下側、票の重みはつけない」で残りの回答案も考えてみますね。 </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 10:06 AM</span>
+
+            <div class="chatlog__message " data-message-id="753919310128480296" id="message-753919310128480296">
+                <div class="chatlog__content">
+                    <div class="markdown">ありがとうございます <img class="emoji " alt="🙇" title="🙇" src="https://twemoji.maxcdn.com/2/72x72/1f647.png">‍♂️ </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128522;" title="&#128522;" src="https://twemoji.maxcdn.com/2/72x72/1f60a.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/748400038635634770/f1d0eee2ddff207b14bc234b3418073f.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="ぽん#5843" data-user-id="748400038635634770" style="">ぽん</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 03:10 PM</span>
+
+            <div class="chatlog__message " data-message-id="753995807996379276" id="message-753995807996379276">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention" title="gnagaoka#6134">@gnagaoka</span> コメントで寄せられた質問のうち、即時返答必要そうなものが1件あったので回答の掲載願います。
+
+ていうか実はディスコードで議論していいのは運営陣だけでなんか書いたらダメみたいな暗黙の了解あったりする？ -- 2020-09-11 (金) 23:15:21 <img class="emoji " alt="☆" title="☆" src="https://twemoji.maxcdn.com/2/72x72/2606.png">
+
+回答として、「discordにおける議論はどなたでも参加を歓迎し、積極的に議論に参加していただきたいと考えています」
+
+以上、問題なければ回答として掲載願います。 </div>
+                </div>
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction">
+                                <img class="emoji emoji--small" alt="&#128077;" title="&#128077;" src="https://twemoji.maxcdn.com/2/72x72/1f44d.png">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 04:54 PM</span>
+
+            <div class="chatlog__message " data-message-id="754022075609513986" id="message-754022075609513986">
+                <div class="chatlog__content">
+                    <div class="markdown">承知しました。 </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="754022541835632691" id="message-754022541835632691">
+                <div class="chatlog__content">
+                    <div class="markdown">反映しました </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+
+<div class="chatlog__message-group">
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/247004606427561985/4c8b55f0de484500ce8cb20321eb36f0.png" alt="Avatar">
+    </div>
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="gnagaoka#6134" data-user-id="247004606427561985" style="">gnagaoka</span>
+
+
+        <span class="chatlog__timestamp">11-Sep-20 06:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="754043825764433931" id="message-754043825764433931">
+                <div class="chatlog__content">
+                    <div class="markdown"><span class="mention">#一般</span> での議論とここでの議論を毎日9頃に下記にエクスポートします。エクスポートされる議論は14日分になります。 <span class="chatlog__edited-timestamp" title="11-Sep-20 06:25 PM">(edited)</span></div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="754044072053833729" id="message-754044072053833729">
+                <div class="chatlog__content">
+                    <div class="markdown">問題なければwikiに掲示いたします mm </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="754045119946293289" id="message-754045119946293289">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://matanki-saito.github.io/DiscordExportBatch/eu4jpwiki/eu4jpwiki_general_14day.html">https://matanki-saito.github.io/DiscordExportBatch/eu4jpwiki/eu4jpwiki_general_14day.html</a> </div>
+                </div>
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="754045155430105158" id="message-754045155430105158">
+                <div class="chatlog__content">
+                    <div class="markdown"><a href="https://matanki-saito.github.io/DiscordExportBatch/eu4jpwiki/eu4jpwiki_admin_14day.html">https://matanki-saito.github.io/DiscordExportBatch/eu4jpwiki/eu4jpwiki_admin_14day.html</a> </div>
+                </div>
+
+
+
+            </div>
+    </div>
+</div>
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 213 message(s)</div>
+</div>
+
+</body>
+</html>
