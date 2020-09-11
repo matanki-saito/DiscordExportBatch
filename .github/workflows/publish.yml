@@ -24,7 +24,10 @@ jobs:
         run: Expand-Archive -Path DiscordChatExporter.CLI.zip
 
       - name: Export log
-        run: DiscordChatExporter.CLI/DiscordChatExporter.Cli.exe export -t "%BOT_TOKEN%" -b -c 740146948392222744 -f HtmlDark -o export.html
+        run: |
+          dir
+          cd DiscordChatExporter.CLI
+          DiscordChatExporter.Cli.exe export -t "%BOT_TOKEN%" -b -c 740146948392222744 -f HtmlDark -o export.html
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         shell: cmd
