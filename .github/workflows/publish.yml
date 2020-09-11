@@ -23,14 +23,13 @@ jobs:
       - name: Unpack DiscordChatExporter.CLI
         run: Expand-Archive -Path DiscordChatExporter.CLI.zip
 
-      - name: Export log
+      - name: Export EU4日wiki:一般log
         run: |
           dir
           cd DiscordChatExporter.CLI
-          DiscordChatExporter.Cli.exe export -t "%BOT_TOKEN%" -b -c 740146948392222744 -f HtmlDark -o ../export/export.html
+          DiscordChatExporter.Cli.exe export -t "$($env:BOT_TOKEN)" -b -c 749876460155699323 -f HtmlDark -o ../export/export.html -before "$([DateTime]::Today.AddDays(-1).ToString('yyyy-MM-dd'))" -after "$([DateTime]::Today.AddDays(-2).ToString('yyyy-MM-dd'))" 
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-        shell: cmd
 
       - name: push translation
         run: |
