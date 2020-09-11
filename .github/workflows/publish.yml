@@ -1,0 +1,36 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Publish mod
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron:  '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      info:
+        description: 'manual trigger'
+jobs:
+  build:
+    runs-on: windows-2019
+    strategy:
+      matrix:
+        python-version: [3.8]
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Unpack DiscordChatExporter.CLI
+        run: Expand-Archive -Path DiscordChatExporter.CLI.zip
+
+      - name: Export log
+        run: DiscordChatExporter.CLI/DiscordChatExporter.Cli.exe export -t "%BOT_TOKEN%" -b -c 740146948392222744 -f HtmlDark -o export.html
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+      - name: check
+        run: |
+          cd DiscordChatExporter.CLI
+          dir
