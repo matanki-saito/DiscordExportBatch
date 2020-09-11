@@ -25,9 +25,16 @@ jobs:
 
       - name: Export EU4日wiki:一般log
         run: |
-          DiscordChatExporter.CLI/DiscordChatExporter.Cli.exe export -t "$($env:BOT_TOKEN)" -b -c 749876460155699323 -f HtmlDark -o docs/eu4jpwiki_general_7day.html --after "$([DateTime]::Today.AddDays(-7).ToString('yyyy-MM-dd'))" 
+          DiscordChatExporter.CLI/DiscordChatExporter.Cli.exe export -t "$($env:BOT_TOKEN)" -b -c 749876460155699323 -f HtmlDark -o docs/eu4jpwiki/eu4jpwiki_general_14day.html --after "$([DateTime]::Today.AddDays(-14).ToString('yyyy-MM-dd'))" 
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+      - name: Export EU4日wiki:管理者連絡・質問log
+        run: |
+          DiscordChatExporter.CLI/DiscordChatExporter.Cli.exe export -t "$($env:BOT_TOKEN)" -b -c 749978066528501771 -f HtmlDark -o docs/eu4jpwiki/eu4jpwiki_admin_14day.html --after "$([DateTime]::Today.AddDays(-14).ToString('yyyy-MM-dd'))" 
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+
 
       - name: push translation
         run: |
