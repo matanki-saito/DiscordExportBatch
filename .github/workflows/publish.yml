@@ -25,7 +25,7 @@ jobs:
 
       - name: Export EU4日wiki:一般log
         run: |
-          DiscordChatExporter.CLI/DiscordChatExporter.Cli.exe export -t "$($env:BOT_TOKEN)" -b -c 749876460155699323 -f HtmlDark -o export/export.html --before "$([DateTime]::Today.AddDays(-1).ToString('yyyy-MM-dd'))" --after "$([DateTime]::Today.AddDays(-2).ToString('yyyy-MM-dd'))" 
+          DiscordChatExporter.CLI/DiscordChatExporter.Cli.exe export -t "$($env:BOT_TOKEN)" -b -c 749876460155699323 -f HtmlDark -o docs/eu4jpwiki_general_7day.html --after "$([DateTime]::Today.AddDays(-7).ToString('yyyy-MM-dd'))" 
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
