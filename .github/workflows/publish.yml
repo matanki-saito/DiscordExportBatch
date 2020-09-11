@@ -27,12 +27,12 @@ jobs:
         run: |
           dir
           cd DiscordChatExporter.CLI
-          DiscordChatExporter.Cli.exe export -t "%BOT_TOKEN%" -b -c 740146948392222744 -f HtmlDark -o export.html
+          DiscordChatExporter.Cli.exe export -t "%BOT_TOKEN%" -b -c 740146948392222744 -f HtmlDark -o ../export/export.html
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         shell: cmd
 
       - name: check
         run: |
-          cd DiscordChatExporter.CLI
+          cd export
           dir
